@@ -2,12 +2,14 @@ import { useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import Services from './components/Services';
 import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
 import Experience from './components/Experience';
 import Testimonial from './components/Testimonial';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import FloatingCTA from './components/FloatingCTA';
 import './App.css';
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
         <main>
           <Hero />
           <div className="space-y-24 md:space-y-32">
+            <Services />
             <About />
             <Skills />
             <Portfolio />
@@ -44,6 +47,7 @@ function App() {
           </div>
         </main>
         <Footer />
+        <FloatingCTA />
       </div>
     </div>
   );

@@ -34,21 +34,21 @@ const Contact = () => {
   };
 
   const contactLinks = [
-    { 
-      icon: MdEmail, 
-      text: 'shivangsrivasatava2023@gmail.com', 
+    {
+      icon: MdEmail,
+      text: 'shivangsrivasatava2023@gmail.com',
       href: 'mailto:shivangsrivasatava2023@gmail.com',
       label: 'Email'
     },
-    { 
-      icon: FaLinkedin, 
-      text: 'LinkedIn Profile', 
+    {
+      icon: FaLinkedin,
+      text: 'LinkedIn Profile',
       href: 'https://www.linkedin.com/in/shivang-srivastava-196324119/',
       label: 'LinkedIn'
     },
-    { 
-      icon: FaGithub, 
-      text: 'GitHub Profile', 
+    {
+      icon: FaGithub,
+      text: 'GitHub Profile',
       href: 'https://github.com',
       label: 'GitHub'
     },
@@ -86,14 +86,72 @@ const Contact = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-3xl font-bold text-heading-dark">Contact Me</h3>
+          <h3 className="text-3xl font-bold text-heading-dark">Let's Work Together</h3>
           <motion.div
-            className="w-16 h-0.5 bg-primary mt-3 mb-12 mx-auto"
+            className="w-16 h-0.5 bg-primary mt-3 mb-6 mx-auto"
             initial={{ width: 0 }}
             whileInView={{ width: 64 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
+          <p className="text-text-dark text-lg mb-12 max-w-2xl mx-auto">
+            Choose how you'd like to get started. I'm here to help bring your project to life.
+          </p>
+
+          {/* Quick Action CTAs */}
+          <motion.div
+            className="flex flex-wrap justify-center gap-4 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <motion.a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                const contactSection = document.querySelector('#contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-background-dark font-bold rounded-lg hover:opacity-90 transition-all duration-300 shadow-lg shadow-primary/30"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Hire Me
+            </motion.a>
+            <motion.a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                const contactSection = document.querySelector('#contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary/10 transition-all duration-300"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get a Quote
+            </motion.a>
+            <motion.a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                const contactSection = document.querySelector('#contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="inline-flex items-center justify-center px-6 py-3 bg-card-dark border border-primary/30 text-primary font-semibold rounded-lg hover:bg-primary/10 transition-all duration-300"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Schedule a Call
+            </motion.a>
+          </motion.div>
 
           <motion.div
             ref={ref}

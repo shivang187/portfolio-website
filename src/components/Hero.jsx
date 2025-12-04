@@ -129,7 +129,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(255, 200, 107, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="relative z-10">Get In Touch</span>
+                <span className="relative z-10">Hire Me</span>
                 <motion.span
                   className="absolute inset-0 bg-white/20"
                   initial={{ x: '-100%' }}
@@ -138,19 +138,29 @@ const Hero = () => {
                 />
               </motion.a>
               <motion.a
-                href="#portfolio"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const portfolioSection = document.querySelector('#portfolio');
-                  if (portfolioSection) {
-                    portfolioSection.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
+                href="#contact"
+                onClick={handleContactClick}
                 className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 border-2 border-primary text-primary font-bold text-base sm:text-lg rounded-lg hover:bg-primary/10 transition-all duration-300 relative overflow-hidden group w-full sm:w-auto"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="relative z-10">View My Work</span>
+                <span className="relative z-10">Get a Quote</span>
+              </motion.a>
+            </motion.div>
+            <motion.div
+              className="mt-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.6 }}
+            >
+              <motion.a
+                href="#contact"
+                onClick={handleContactClick}
+                className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 bg-card-dark border border-primary/30 text-primary font-semibold text-sm sm:text-base rounded-lg hover:bg-primary/10 transition-all duration-300 w-full sm:w-auto"
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>Schedule a Call</span>
               </motion.a>
             </motion.div>
           </motion.div>
