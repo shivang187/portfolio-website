@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MdEmail, MdPhone, MdLocationOn } from 'react-icons/md';
+import { MdEmail } from 'react-icons/md';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Contact = () => {
   const ref = useRef(null);
@@ -32,10 +33,25 @@ const Contact = () => {
     }, 1000);
   };
 
-  const contactInfo = [
-    { icon: MdEmail, text: 'shivangsrivasatava2023@gmail.com', href: 'mailto:shivangsrivasatava2023@gmail.com' },
-    { icon: MdPhone, text: '+916388214681', href: 'tel:+916388214681' },
-    { icon: MdLocationOn, text: 'India', href: '#' },
+  const contactLinks = [
+    { 
+      icon: MdEmail, 
+      text: 'shivangsrivasatava2023@gmail.com', 
+      href: 'mailto:shivangsrivasatava2023@gmail.com',
+      label: 'Email'
+    },
+    { 
+      icon: FaLinkedin, 
+      text: 'LinkedIn Profile', 
+      href: 'https://www.linkedin.com/in/shivang-srivastava-196324119/',
+      label: 'LinkedIn'
+    },
+    { 
+      icon: FaGithub, 
+      text: 'GitHub Profile', 
+      href: 'https://github.com',
+      label: 'GitHub'
+    },
   ];
 
   const containerVariants = {
@@ -177,28 +193,36 @@ const Contact = () => {
               </form>
             </motion.div>
 
-            {/* Contact Info */}
+            {/* Contact Links */}
             <motion.div className="space-y-4" variants={itemVariants}>
-              {contactInfo.map((info, index) => (
+              <h4 className="text-xl font-semibold text-heading-dark mb-4">Get In Touch</h4>
+              {contactLinks.map((link, index) => (
                 <motion.a
                   key={index}
-                  href={info.href}
-                  className="flex items-center space-x-4 p-4 bg-card-dark rounded-lg shadow-soft group hover:scale-105 transition-transform duration-300"
+                  href={link.href}
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="flex items-center space-x-4 p-5 bg-card-dark rounded-lg shadow-soft group hover:scale-105 transition-all duration-300 border border-transparent hover:border-primary/30"
                   initial={{ opacity: 0, x: 20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
-                  whileHover={{ x: 5 }}
+                  whileHover={{ x: 5, boxShadow: "0 10px 25px rgba(255, 200, 107, 0.2)" }}
                 >
                   <motion.div
-                    className="text-primary text-2xl"
+                    className="text-primary text-2xl flex-shrink-0"
                     whileHover={{ rotate: 360, scale: 1.2 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <info.icon />
+                    <link.icon />
                   </motion.div>
-                  <span className="text-sm text-heading-dark group-hover:text-primary transition-colors">
-                    {info.text}
-                  </span>
+                  <div className="flex-1">
+                    <div className="text-sm font-medium text-heading-dark group-hover:text-primary transition-colors">
+                      {link.label}
+                    </div>
+                    <div className="text-xs text-text-dark mt-1">
+                      {link.text}
+                    </div>
+                  </div>
                 </motion.a>
               ))}
             </motion.div>

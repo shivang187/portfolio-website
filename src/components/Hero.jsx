@@ -81,7 +81,7 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <motion.h1
-              className="text-5xl lg:text-6xl font-bold text-heading-dark leading-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-heading-dark leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
@@ -107,32 +107,52 @@ const Hero = () => {
             </motion.h1>
 
             <motion.p
-              className="mt-6 text-lg max-w-xl mx-auto md:mx-0"
+              className="mt-6 text-lg sm:text-xl md:text-2xl text-text-dark max-w-2xl mx-auto md:mx-0 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              A passionate developer building seamless web and mobile experiences from India.
+              Crafting innovative digital solutions with clean code and creative problem-solving.
+              <span className="text-primary font-semibold"> Let's build something amazing together.</span>
             </motion.p>
 
-            <motion.a
-              href="#contact"
-              onClick={handleContactClick}
-              className="inline-block mt-8 px-8 py-3 bg-primary text-background-dark font-semibold rounded-lg hover:opacity-90 transition-all duration-300 relative overflow-hidden group"
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 mt-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
-              <span className="relative z-10">Contact Me</span>
-              <motion.span
-                className="absolute inset-0 bg-white/20"
-                initial={{ x: '-100%' }}
-                whileHover={{ x: '100%' }}
-                transition={{ duration: 0.5 }}
-              />
-            </motion.a>
+              <motion.a
+                href="#contact"
+                onClick={handleContactClick}
+                className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 bg-primary text-background-dark font-bold text-base sm:text-lg rounded-lg hover:opacity-90 transition-all duration-300 relative overflow-hidden group shadow-lg shadow-primary/30 w-full sm:w-auto"
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(255, 200, 107, 0.4)" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10">Get In Touch</span>
+                <motion.span
+                  className="absolute inset-0 bg-white/20"
+                  initial={{ x: '-100%' }}
+                  whileHover={{ x: '100%' }}
+                  transition={{ duration: 0.5 }}
+                />
+              </motion.a>
+              <motion.a
+                href="#portfolio"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const portfolioSection = document.querySelector('#portfolio');
+                  if (portfolioSection) {
+                    portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-4 border-2 border-primary text-primary font-bold text-base sm:text-lg rounded-lg hover:bg-primary/10 transition-all duration-300 relative overflow-hidden group w-full sm:w-auto"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10">View My Work</span>
+              </motion.a>
+            </motion.div>
           </motion.div>
 
           {/* Image Section */}
