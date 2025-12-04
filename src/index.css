@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons+Outlined');
+
+:root {
+  --primary: #FFC86B;
+  --background-dark: #252934;
+  --card-dark: #2E3441;
+  --text-dark: #A6AEC1;
+  --heading-dark: #E4E6EB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #252934;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FFC86B;
+  border-radius: 10px;
+  border: 2px solid #252934;
+}
+
+body {
+  background-color: #252934;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Custom utility classes */
+.font-display {
+  font-family: 'Poppins', sans-serif;
+}
+
+.bg-background-dark {
+  background-color: #252934;
+}
+
+.bg-card-dark {
+  background-color: #2E3441;
+}
+
+.text-text-dark {
+  color: #A6AEC1;
+}
+
+.text-heading-dark {
+  color: #E4E6EB;
+}
+
+.text-primary {
+  color: #FFC86B;
+}
+
+.bg-primary {
+  background-color: #FFC86B;
+}
+
+.border-primary {
+  border-color: #FFC86B;
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
